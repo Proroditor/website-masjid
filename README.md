@@ -49,8 +49,11 @@ Konten utama dibaca melalui route API berikut:
 - `/api/mimbar-jumat`
 - `/api/mitra`
 - `/api/pengurus`
+- `/api/site-settings`
 
 Jika Sanity tidak tersedia, halaman tetap menggunakan data lokal dari `src/data`. UI menampilkan status ketika data terbaru sedang dimuat atau gagal disinkronkan.
+
+Pengaturan website dibaca dari `/api/site-settings`. Dokumen **Pengaturan Website** di Studio mengatur warna identitas/aksen, warna kategori berita, teks hero dan Tentang Kami, foto masjid, serta QRIS donasi. Nilai warna yang tidak valid diabaikan; jika dokumen belum tersedia atau API gagal, website menggunakan nilai bawaan dari `src/data/site-settings.json`. QRIS tetap menampilkan placeholder sampai gambar diunggah.
 
 ## Route publik
 

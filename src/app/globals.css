@@ -43,7 +43,7 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 iframe:focus-visible {
-  outline: 3px solid rgba(201, 168, 76, 0.9);
+  outline: 3px solid color-mix(in srgb, var(--brand-accent) 90%, transparent);
   outline-offset: 3px;
 }
 

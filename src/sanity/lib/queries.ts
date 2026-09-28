@@ -44,3 +44,16 @@ export const mimbarJumatQuery = `*[_type == "mimbarJumat"] | order(tanggal desc)
 export const mitraQuery = `*[_type == "mitra"] | order(_createdAt asc)[0...50] {
   _id, nama, inisial, logo { asset->{url} }
 }`
+
+export const siteSettingsQuery = `*[_type == "siteSettings" && _id == "siteSettings"][0] {
+  warna,
+  heroDeskripsi,
+  tentang {
+    label,
+    judul,
+    paragrafPertama,
+    paragrafKedua,
+    gambar { asset->{url}, alt }
+  },
+  qris { asset->{url}, alt }
+}`

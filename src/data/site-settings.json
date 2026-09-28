@@ -1,0 +1,28 @@
+{
+  "colors": {
+    "primary": "#0d3d2b",
+    "primaryHover": "#0a2e21",
+    "accent": "#c9a84c",
+    "accentHover": "#b8963e",
+    "accentLight": "#f0d57a",
+    "categories": {
+      "BERITA": "#2f9e6f",
+      "KEGIATAN": "#c9a84c",
+      "PENGUMUMAN": "#2563eb",
+      "SOSIAL": "#f43f5e"
+    }
+  },
+  "heroDescription": "Ruang digital untuk mengenal masjid, melihat jadwal ibadah, serta mengikuti informasi dan kegiatan Masjid Lathifah.",
+  "about": {
+    "label": "Tentang Kami",
+    "title": "Masjid Lathifah",
+    "paragraph1": "Masjid Lathifah adalah masjid yang berlokasi di lingkungan perumahan, menjadi pusat kegiatan ibadah dan sosial masyarakat setempat. Dikelola oleh Dewan Kemakmuran Masjid (DKM) Lathifah, masjid ini terbuka untuk seluruh jamaah.",
+    "paragraph2": "Dengan fasilitas yang terus dikembangkan, Masjid Lathifah hadir untuk melayani kebutuhan ibadah dan kegiatan keagamaan warga sekitar setiap harinya.",
+    "image": "/masjid-2.jpg",
+    "imageAlt": "Masjid Lathifah"
+  },
+  "qris": {
+    "image": "",
+    "alt": "QRIS untuk donasi Masjid Lathifah"
+  }
+}

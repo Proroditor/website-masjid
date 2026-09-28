@@ -8,6 +8,7 @@ import MIMBAR_JUMAT from '@/data/mimbar-jumat.json'
 import PENGURUS from '@/data/pengurus.json'
 import BERITA_ALL from '@/data/berita.json'
 import DataStatus from '@/components/data-status'
+import {useSiteSettings} from '@/components/site-settings-provider'
 import {useSanityData} from '@/hooks/use-sanity-data'
 
 const LAYANAN = [
@@ -128,25 +129,25 @@ function Navbar({ onDonasi }) {
   const mobileMenuId = 'mobile-navigation'
 
   return (
-    <nav aria-label="Navigasi utama" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || menuOpen ? 'bg-[#0d3d2b]/95 backdrop-blur shadow-lg' : 'bg-[#0d3d2b]/40 backdrop-blur-md'}`}>
+    <nav aria-label="Navigasi utama" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || menuOpen ? 'bg-[var(--brand-primary)]/95 backdrop-blur shadow-lg' : 'bg-[var(--brand-primary)]/40 backdrop-blur-md'}`}>
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Image src="/logo.png" alt="Logo Masjid Lathifah" width={44} height={44} loading="eager" className="rounded-full" />
           <div>
             <p className="text-white font-bold text-sm leading-tight">Masjid Lathifah</p>
-            <p className="text-[#c9a84c] text-xs">DKM Lathifah</p>
+            <p className="text-[var(--brand-accent)] text-xs">DKM Lathifah</p>
           </div>
         </div>
 
         <div className="hidden lg:flex items-center gap-8">
           {MENU.map(m => (
             <a key={m} href={`#${m.toLowerCase()}`}
-               className="text-white/100 hover:text-[#c9a84c] text-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d3d2b] rounded-full">
+               className="text-white/100 hover:text-[var(--brand-accent)] text-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-primary)] rounded-full">
               {m}
             </a>
           ))}
           <button type="button" onClick={onDonasi}
-            className="bg-[#c9a84c] hover:bg-[#b8963e] text-white text-sm font-semibold px-5 py-2 rounded-full shadow-lg shadow-[#c9a84c]/20 hover:shadow-xl hover:shadow-[#c9a84c]/30 hover:scale-105 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d3d2b]">
+            className="bg-[var(--brand-accent)] hover:bg-[var(--brand-accent-hover)] text-white text-sm font-semibold px-5 py-2 rounded-full shadow-lg shadow-[var(--brand-accent)]/20 hover:shadow-xl hover:shadow-[var(--brand-accent)]/30 hover:scale-105 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-primary)]">
             Donasi
           </button>
         </div>
@@ -154,7 +155,7 @@ function Navbar({ onDonasi }) {
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden text-white p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d3d2b]"
+          className="lg:hidden text-white p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-primary)]"
           aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'}
           aria-expanded={menuOpen}
           aria-controls={mobileMenuId}
@@ -176,12 +177,12 @@ function Navbar({ onDonasi }) {
           {MENU.map(m => (
             <a key={m} href={`#${m.toLowerCase()}`}
                onClick={() => setMenuOpen(false)}
-               className="text-white/90 hover:text-[#c9a84c] text-base font-medium py-2.5 border-b border-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c9a84c] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d3d2b] rounded-md">
+               className="text-white/90 hover:text-[var(--brand-accent)] text-base font-medium py-2.5 border-b border-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-primary)] rounded-md">
               {m}
             </a>
           ))}
           <button type="button" onClick={() => { onDonasi(); setMenuOpen(false) }}
-            className="bg-[#c9a84c] hover:bg-[#b8963e] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#0d3d2b]">
+            className="bg-[var(--brand-accent)] hover:bg-[var(--brand-accent-hover)] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-colors mt-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--brand-primary)]">
             Donasi
           </button>
         </div>
@@ -279,8 +280,8 @@ function SectionJadwal() {
 
   return (
     <section id="jadwal" className="relative overflow-hidden bg-white px-6 py-16 lg:px-8 lg:py-24">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(201,168,76,.12),transparent_42%)]" />
-      <div className="relative mx-auto grid max-w-[480px] overflow-hidden rounded-[20px] border border-black/10 shadow-[0_16px_50px_rgba(13,61,43,.2)] lg:max-w-6xl lg:grid-cols-[1.35fr_.85fr] lg:rounded-[28px]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(var(--brand-accent-rgb),.12),transparent_42%)]" />
+      <div className="relative mx-auto grid max-w-[480px] overflow-hidden rounded-[20px] border border-black/10 shadow-[0_16px_50px_rgba(var(--brand-primary-rgb),.2)] lg:max-w-6xl lg:grid-cols-[1.35fr_.85fr] lg:rounded-[28px]">
         <div className="relative h-[clamp(220px,52vw,300px)] overflow-hidden lg:h-[460px]">
           <div className="absolute inset-0 transition-[background] duration-[6000ms]" style={{ background: `linear-gradient(to bottom, ${scene.top}, ${scene.bottom})` }} />
           <div className="absolute inset-0 transition-opacity duration-[4000ms]" style={{ opacity: starsOpacity }}>
@@ -298,26 +299,26 @@ function SectionJadwal() {
           <svg className="absolute bottom-0 left-0 h-[45%] w-full" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
             <rect x="0" y="266" width="1200" height="34" fill="rgba(0,0,0,.86)" />
             <path d="M0 270 Q100 214 200 238 Q300 254 400 230 Q500 208 600 226 Q700 242 800 220 Q900 198 1000 226 Q1100 246 1200 231 L1200 300 L0 300Z" fill="rgba(0,0,0,.86)" />
-            <rect x="157" y="155" width="18" height="120" fill="rgba(0,0,0,.86)" /><polygon points="166,139 155,160 177,160" fill="rgba(0,0,0,.86)" /><circle cx="166" cy="134" r="5" fill="#c9a84c" />
-            <rect x="1025" y="155" width="18" height="120" fill="rgba(0,0,0,.86)" /><polygon points="1034,139 1023,160 1045,160" fill="rgba(0,0,0,.86)" /><circle cx="1034" cy="134" r="5" fill="#c9a84c" />
+            <rect x="157" y="155" width="18" height="120" fill="rgba(0,0,0,.86)" /><polygon points="166,139 155,160 177,160" fill="rgba(0,0,0,.86)" /><circle cx="166" cy="134" r="5" fill="var(--brand-accent)" />
+            <rect x="1025" y="155" width="18" height="120" fill="rgba(0,0,0,.86)" /><polygon points="1034,139 1023,160 1045,160" fill="rgba(0,0,0,.86)" /><circle cx="1034" cy="134" r="5" fill="var(--brand-accent)" />
             <rect x="334" y="196" width="532" height="109" fill="rgba(0,0,0,.86)" />
-            <rect x="351" y="125" width="30" height="180" fill="rgba(0,0,0,.86)" /><polygon points="366,105 350,130 382,130" fill="rgba(0,0,0,.86)" /><circle cx="366" cy="99" r="7" fill="#c9a84c" />
-            <rect x="819" y="125" width="30" height="180" fill="rgba(0,0,0,.86)" /><polygon points="834,105 818,130 850,130" fill="rgba(0,0,0,.86)" /><circle cx="834" cy="99" r="7" fill="#c9a84c" />
+            <rect x="351" y="125" width="30" height="180" fill="rgba(0,0,0,.86)" /><polygon points="366,105 350,130 382,130" fill="rgba(0,0,0,.86)" /><circle cx="366" cy="99" r="7" fill="var(--brand-accent)" />
+            <rect x="819" y="125" width="30" height="180" fill="rgba(0,0,0,.86)" /><polygon points="834,105 818,130 850,130" fill="rgba(0,0,0,.86)" /><circle cx="834" cy="99" r="7" fill="var(--brand-accent)" />
             <ellipse cx="460" cy="198" rx="70" ry="48" fill="rgba(0,0,0,.86)" /><ellipse cx="740" cy="198" rx="70" ry="48" fill="rgba(0,0,0,.86)" /><ellipse cx="600" cy="172" rx="108" ry="76" fill="rgba(0,0,0,.86)" />
-            <path d="M592 108a19 19 0 1 1 16 0" stroke="#c9a84c" strokeWidth="4" fill="none" /><circle cx="608" cy="101" r="4" fill="#c9a84c" />
+            <path d="M592 108a19 19 0 1 1 16 0" stroke="var(--brand-accent)" strokeWidth="4" fill="none" /><circle cx="608" cy="101" r="4" fill="var(--brand-accent)" />
           </svg>
         </div>
-        <div className="bg-[#0d3d2b] p-[clamp(14px,4vw,22px)] lg:flex lg:flex-col lg:justify-center lg:p-10">
+        <div className="bg-[var(--brand-primary)] p-[clamp(14px,4vw,22px)] lg:flex lg:flex-col lg:justify-center lg:p-10">
           <div className="mb-4 flex items-start justify-between gap-3 lg:mb-8 lg:gap-6">
             <div>
               <p className="text-[clamp(28px,7vw,38px)] font-medium leading-none tracking-[-1px] text-white tabular-nums lg:text-5xl">{now ? now.toLocaleTimeString('id-ID') : '--:--:--'}</p>
               <p className="mt-1 text-[clamp(10px,2.5vw,12px)] text-white/50 lg:text-sm">{now ? now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long' }) : 'Memuat waktu...'}</p>
-              <p className="mt-0.5 text-[clamp(9px,2.2vw,11px)] text-[#c9a84c]/75 lg:mt-2 lg:text-xs">Jadwal sholat hari ini</p>
+              <p className="mt-0.5 text-[clamp(9px,2.2vw,11px)] text-[var(--brand-accent)]/75 lg:mt-2 lg:text-xs">Jadwal sholat hari ini</p>
             </div>
-            <div className="rounded-xl border border-[#c9a84c]/20 bg-white/5 px-3 py-2 text-right lg:min-w-[150px] lg:px-4 lg:py-3">
+            <div className="rounded-xl border border-[var(--brand-accent)]/20 bg-white/5 px-3 py-2 text-right lg:min-w-[150px] lg:px-4 lg:py-3">
               <p className="mb-1 text-[clamp(8px,2vw,9px)] uppercase tracking-[.12em] text-white/35">Berikutnya</p>
               <p className="text-[clamp(14px,3.8vw,18px)] font-semibold leading-none text-white">{berikutnya.nama}</p>
-              <p className="mt-1 text-[clamp(20px,5.5vw,28px)] font-bold leading-none tracking-[-1px] text-[#c9a84c] tabular-nums [text-shadow:0_0_16px_rgba(201,168,76,.6)]">{countdown}</p>
+              <p className="mt-1 text-[clamp(20px,5.5vw,28px)] font-bold leading-none tracking-[-1px] text-[var(--brand-accent)] tabular-nums [text-shadow:0_0_16px_rgba(var(--brand-accent-rgb),.6)]">{countdown}</p>
             </div>
           </div>
           <div className="grid grid-cols-5 gap-1.5 lg:gap-2">
@@ -326,10 +327,10 @@ function SectionJadwal() {
               const isNext = index === nextIndex
               const isDone = hour * 60 + minute < nowMenit && !isNext
               return (
-                <div key={sholat.nama} className={`flex flex-col items-center gap-1 rounded-[10px] px-0.5 py-2 lg:gap-2 lg:rounded-xl lg:px-2 lg:py-3 ${isNext ? 'border border-[#c9a84c]/35 bg-[#c9a84c]/12' : isDone ? 'border border-white/5 bg-white/[.03]' : 'border border-white/[.06] bg-white/[.05]'}`}>
-                  <span className={`h-1.5 w-1.5 rounded-full ${isNext ? 'bg-[#c9a84c] shadow-[0_0_6px_rgba(201,168,76,.7)]' : isDone ? 'bg-white/20' : 'bg-white/15'}`} />
+                <div key={sholat.nama} className={`flex flex-col items-center gap-1 rounded-[10px] px-0.5 py-2 lg:gap-2 lg:rounded-xl lg:px-2 lg:py-3 ${isNext ? 'border border-[var(--brand-accent)]/35 bg-[var(--brand-accent)]/12' : isDone ? 'border border-white/5 bg-white/[.03]' : 'border border-white/[.06] bg-white/[.05]'}`}>
+                  <span className={`h-1.5 w-1.5 rounded-full ${isNext ? 'bg-[var(--brand-accent)] shadow-[0_0_6px_rgba(var(--brand-accent-rgb),.7)]' : isDone ? 'bg-white/20' : 'bg-white/15'}`} />
                   <p className={`text-center text-[clamp(9px,2.2vw,11px)] uppercase tracking-[.05em] ${isNext ? 'font-semibold text-white' : isDone ? 'text-white/30' : 'text-white/60'}`}>{sholat.nama}</p>
-                  <p className={`text-center text-[clamp(10px,2.5vw,12px)] tabular-nums ${isNext ? 'font-semibold text-[#c9a84c]' : isDone ? 'text-white/20' : 'text-white/45'}`}>{sholat.waktu}</p>
+                  <p className={`text-center text-[clamp(10px,2.5vw,12px)] tabular-nums ${isNext ? 'font-semibold text-[var(--brand-accent)]' : isDone ? 'text-white/20' : 'text-white/45'}`}>{sholat.waktu}</p>
                 </div>
               )
             })}
@@ -345,6 +346,7 @@ function SectionJadwal() {
 
 function DonasiOverlay({ onClose }) {
   const closeButtonRef = useRef(null)
+  const {qris} = useSiteSettings()
 
   useEffect(() => {
     closeButtonRef.current?.focus()
@@ -365,22 +367,25 @@ function DonasiOverlay({ onClose }) {
            aria-modal="true"
            aria-labelledby="donation-title"
            tabIndex="-1">
-        <div className="w-12 h-12 rounded-full bg-[#0d3d2b] flex items-center justify-center mx-auto mb-4">
-          <FeatureIcon name="mosque" className="h-6 w-6 text-[#c9a84c]" />
+        <div className="w-12 h-12 rounded-full bg-[var(--brand-primary)] flex items-center justify-center mx-auto mb-4">
+          <FeatureIcon name="mosque" className="h-6 w-6 text-[var(--brand-accent)]" />
         </div>
-        <h2 id="donation-title" className="text-[#0d3d2b] font-bold text-xl mb-1">Infaq & Sedekah</h2>
+        <h2 id="donation-title" className="text-[var(--brand-primary)] font-bold text-xl mb-1">Infaq & Sedekah</h2>
         <p className="text-gray-500 text-sm mb-5">Scan QRIS di bawah untuk berdonasi</p>
         <div className="bg-gray-100 rounded-2xl h-52 flex items-center justify-center mb-5">
-          <div className="text-center">
-            <FeatureIcon name="phone" className="mx-auto mb-2 h-10 w-10 text-gray-400" />
-            <p className="text-gray-600 text-sm">Gambar QRIS</p>
-            <p className="text-gray-500 text-xs">Taruh file qris.png di /public</p>
-          </div>
+          {qris.image
+            ? <Image src={qris.image} alt={qris.alt} width={208} height={208} className="h-full w-full object-contain p-2" />
+            : <div className="text-center">
+                <FeatureIcon name="phone" className="mx-auto mb-2 h-10 w-10 text-gray-400" />
+                <p className="text-gray-600 text-sm">Gambar QRIS</p>
+                <p className="text-gray-500 text-xs">QRIS belum diunggah melalui Admin</p>
+              </div>
+          }
         </div>
         <p className="text-xs text-gray-600 mb-4">Jazakumullah khairan atas kebaikan Bapak/Ibu</p>
         <button type="button" onClick={onClose}
           ref={closeButtonRef}
-          className="w-full bg-[#0d3d2b] hover:bg-[#0a2e21] text-white font-semibold py-3 rounded-xl transition-colors">
+          className="w-full bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white font-semibold py-3 rounded-xl transition-colors">
           Tutup
         </button>
       </div>
@@ -393,11 +398,11 @@ function SectionMimbarJumat() {
 
   return (
     <section id="mimbar-jumat" className="relative bg-white py-20 px-6 overflow-hidden">
-      <IslamicPattern className="inset-0 text-[#0d3d2b] opacity-[0.025]" />
+      <IslamicPattern className="inset-0 text-[var(--brand-primary)] opacity-[0.025]" />
       <div className="max-w-6xl mx-auto relative">
         <Reveal>
-          <p className="text-[#c9a84c] text-sm uppercase tracking-widest mb-2">Khutbah Jumat</p>
-          <h2 className="text-[#0d3d2b] text-3xl font-bold mb-10">Mimbar Jumat</h2>
+          <p className="text-[var(--brand-accent)] text-sm uppercase tracking-widest mb-2">Khutbah Jumat</p>
+          <h2 className="text-[var(--brand-primary)] text-3xl font-bold mb-10">Mimbar Jumat</h2>
           <DataStatus isLoading={isLoading} hasError={hasError} />
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -406,24 +411,24 @@ function SectionMimbarJumat() {
               <div
                 className={`rounded-2xl p-6 border transition-all duration-300 hover:-translate-y-1 ${
                   i === 0
-                    ? 'bg-[#0d3d2b] border-[#0d3d2b] text-white shadow-xl shadow-[#0d3d2b]/20'
-                    : 'bg-gray-50 border-gray-100 hover:border-[#c9a84c]/40 hover:shadow-lg'
+                    ? 'bg-[var(--brand-primary)] border-[var(--brand-primary)] text-white shadow-xl shadow-[var(--brand-primary)]/20'
+                    : 'bg-gray-50 border-gray-100 hover:border-[var(--brand-accent)]/40 hover:shadow-lg'
                 }`}>
                 {i === 0 && (
-                  <span className="inline-block bg-[#c9a84c] text-white text-[10px] font-bold px-3 py-1 rounded-full mb-3">
+                  <span className="inline-block bg-[var(--brand-accent)] text-white text-[10px] font-bold px-3 py-1 rounded-full mb-3">
                     JUMAT TERDEKAT
                   </span>
                 )}
                 <p className={`text-xs mb-2 ${i === 0 ? 'text-white/50' : 'text-gray-400'}`}>{m.tanggal}</p>
-                <h3 className={`font-bold text-base leading-snug mb-2 ${i === 0 ? 'text-white' : 'text-[#0d3d2b]'}`}>
+                <h3 className={`font-bold text-base leading-snug mb-2 ${i === 0 ? 'text-white' : 'text-[var(--brand-primary)]'}`}>
                   {m.judul}
                 </h3>
                 <p className={`text-sm leading-relaxed mb-4 ${i === 0 ? 'text-white/70' : 'text-gray-500'}`}>
                   {m.ringkasan}
                 </p>
                 <div className={`pt-3 border-t ${i === 0 ? 'border-white/10' : 'border-gray-100'}`}>
-                  <p className="text-xs uppercase tracking-widest mb-0.5 text-[#c9a84c]">Khatib</p>
-                  <p className={`text-sm font-semibold ${i === 0 ? 'text-white' : 'text-[#0d3d2b]'}`}>{m.khatib}</p>
+                  <p className="text-xs uppercase tracking-widest mb-0.5 text-[var(--brand-accent)]">Khatib</p>
+                  <p className={`text-sm font-semibold ${i === 0 ? 'text-white' : 'text-[var(--brand-primary)]'}`}>{m.khatib}</p>
                 </div>
               </div>
             </Reveal>
@@ -439,25 +444,25 @@ function SectionPengurus() {
 
   return (
     <section id="pengurus" className="relative bg-gray-50 py-20 px-6 overflow-hidden">
-      <IslamicPattern className="inset-0 text-[#0d3d2b] opacity-[0.03]" />
+      <IslamicPattern className="inset-0 text-[var(--brand-primary)] opacity-[0.03]" />
       <div className="max-w-6xl mx-auto relative">
         <Reveal>
-          <p className="text-[#c9a84c] text-sm uppercase tracking-widest mb-2">Struktur Organisasi</p>
-          <h2 className="text-[#0d3d2b] text-3xl font-bold mb-10">Pengurus DKM Lathifah</h2>
+          <p className="text-[var(--brand-accent)] text-sm uppercase tracking-widest mb-2">Struktur Organisasi</p>
+          <h2 className="text-[var(--brand-primary)] text-3xl font-bold mb-10">Pengurus DKM Lathifah</h2>
           <DataStatus isLoading={isLoading} hasError={hasError} />
         </Reveal>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
           {pengurus.map((p, i) => (
             <Reveal key={p.nama} delay={i * 80}>
               <div className="text-center group">
-                <div className="relative w-24 h-24 mx-auto rounded-full bg-[#0d3d2b] flex items-center justify-center mb-4 border-4 border-white shadow-md group-hover:shadow-xl group-hover:border-[#c9a84c]/40 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                <div className="relative w-24 h-24 mx-auto rounded-full bg-[var(--brand-primary)] flex items-center justify-center mb-4 border-4 border-white shadow-md group-hover:shadow-xl group-hover:border-[var(--brand-accent)]/40 group-hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                   {p.foto ? (
                     <Image src={p.foto} alt={p.nama} fill className="object-cover" />
                   ) : (
-                    <span className="text-[#c9a84c] font-extrabold text-xl">{p.inisial}</span>
+                    <span className="text-[var(--brand-accent)] font-extrabold text-xl">{p.inisial}</span>
                   )}
                 </div>
-                <p className="font-bold text-[#0d3d2b] text-sm leading-snug">{p.nama}</p>
+                <p className="font-bold text-[var(--brand-primary)] text-sm leading-snug">{p.nama}</p>
                 <p className="text-gray-400 text-xs mt-1">{p.jabatan}</p>
               </div>
             </Reveal>
@@ -475,16 +480,16 @@ function SectionBerita() {
   const smalls   = semuaBerita.slice(1, 4)
   return (
     <section id="berita" className="relative bg-white py-20 px-6 overflow-hidden">
-      <IslamicPattern className="inset-0 text-[#0d3d2b] opacity-[0.025]" />
+      <IslamicPattern className="inset-0 text-[var(--brand-primary)] opacity-[0.025]" />
       <div className="max-w-6xl mx-auto relative">
         <Reveal>
           <div className="flex justify-between items-end mb-10">
             <div>
-              <p className="text-[#c9a84c] text-sm uppercase tracking-widest mb-2">Informasi</p>
-              <h2 className="text-[#0d3d2b] text-3xl font-bold">Berita Terbaru</h2>
+              <p className="text-[var(--brand-accent)] text-sm uppercase tracking-widest mb-2">Informasi</p>
+              <h2 className="text-[var(--brand-primary)] text-3xl font-bold">Berita Terbaru</h2>
               <DataStatus isLoading={isLoading} hasError={hasError} />
             </div>
-            <Link href="/berita" className="text-[#0d3d2b] text-sm font-semibold hover:text-[#c9a84c] transition-colors">
+            <Link href="/berita" className="text-[var(--brand-primary)] text-sm font-semibold hover:text-[var(--brand-accent)] transition-colors">
               Semua Berita →
             </Link>
           </div>
@@ -497,7 +502,7 @@ function SectionBerita() {
                 <Image src={featured.img} alt={featured.judul} fill sizes="(min-width: 1024px) 66vw, 100vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                 <div className="absolute bottom-0 left-0 p-6">
-                  <span className="bg-[#c9a84c] text-white text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">
+                  <span className="bg-[var(--brand-accent)] text-white text-xs font-bold px-3 py-1 rounded-full mb-3 inline-block">
                     {featured.kategori}
                   </span>
                   <h3 className="text-white font-bold text-lg leading-snug mb-2">{featured.judul}</h3>
@@ -514,7 +519,7 @@ function SectionBerita() {
                   <Image src={b.img} alt={b.judul} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-4">
-                    <span className="bg-[#c9a84c] text-white text-[10px] font-bold px-2 py-0.5 rounded-full mb-1 inline-block">
+                    <span className="bg-[var(--brand-accent)] text-white text-[10px] font-bold px-2 py-0.5 rounded-full mb-1 inline-block">
                       {b.kategori}
                     </span>
                     <p className="text-white font-semibold text-sm line-clamp-2 leading-snug">{b.judul}</p>
@@ -535,7 +540,7 @@ function SectionMitra() {
   return (
     <section className="bg-gray-50 py-12 px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto mb-6 text-center">
-        <p className="text-[#0d3d2b]/40 text-xs uppercase tracking-widest font-bold">Mitra & Kolaborasi</p>
+        <p className="text-[var(--brand-primary)]/40 text-xs uppercase tracking-widest font-bold">Mitra & Kolaborasi</p>
         <DataStatus isLoading={isLoading} hasError={hasError} />
       </div>
       <div className="relative">
@@ -544,8 +549,8 @@ function SectionMitra() {
         <div className="flex gap-6 animate-[marquee_20s_linear_infinite] w-max">
           {[...mitra, ...mitra].map((m, i) => (
             <div key={i}
-              className="flex-shrink-0 w-32 h-16 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[#c9a84c]/30 transition-all flex flex-col items-center justify-center gap-1 px-3">
-              <span className="text-[#0d3d2b] font-extrabold text-sm">{m.inisial}</span>
+              className="flex-shrink-0 w-32 h-16 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[var(--brand-accent)]/30 transition-all flex flex-col items-center justify-center gap-1 px-3">
+              <span className="text-[var(--brand-primary)] font-extrabold text-sm">{m.inisial}</span>
               <span className="text-gray-400 text-[10px] text-center leading-tight">{m.nama}</span>
             </div>
           ))}
@@ -557,6 +562,7 @@ function SectionMitra() {
 
 export default function Home() {
   const [showDonasi, setShowDonasi] = useState(false)
+  const {heroDescription, about} = useSiteSettings()
   const {data: galeri, isLoading: galeriLoading, hasError: galeriError} = useSanityData('/api/galeri', [
     {id: 'hero', judul: 'Masjid Lathifah', img: '/hero-bg.jpg'},
     {id: 'masjid-2', judul: 'Masjid Lathifah', img: '/masjid-2.jpg'},
@@ -565,7 +571,7 @@ export default function Home() {
 
   return (
     <>
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[#0d3d2b] focus:shadow-lg">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-[var(--brand-primary)] focus:shadow-lg">
         Lewati ke konten utama
       </a>
 
@@ -583,23 +589,20 @@ export default function Home() {
       {/* ── HERO ── */}
       <section id="beranda" className="relative min-h-screen flex items-center">
         <Image src="/hero-bg.jpg" alt="Masjid Lathifah" fill className="object-cover object-center" priority />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d3d2b]/95 via-[#0d3d2b]/70 to-[#0d3d2b]/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d3d2b]/90 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--brand-primary)]/95 via-[var(--brand-primary)]/70 to-[var(--brand-primary)]/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-primary)]/90 via-transparent to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 w-full pt-24 pb-16">
           <div className="max-w-2xl">
             <Reveal>
-              <p className="text-[#c9a84c] text-sm tracking-widest uppercase mb-3">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+              <p className="text-[var(--brand-accent)] text-sm tracking-widest uppercase mb-3">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
               <p className="text-white/60 text-sm tracking-widest uppercase mb-4">Selamat Datang di</p>
               <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
                 <span className="block text-white">Masjid</span>
-                <span className="block text-[#c9a84c]">Lathifah</span>
+                <span className="block text-[var(--brand-accent)]">Lathifah</span>
               </h1>
-              <p className="text-white/70 text-base max-w-md leading-relaxed mb-8">
-                Ruang digital untuk mengenal masjid, melihat jadwal ibadah, serta mengikuti
-                informasi dan kegiatan Masjid Lathifah.
-              </p>
+              <p className="text-white/70 text-base max-w-md leading-relaxed mb-8">{heroDescription}</p>
               <div className="flex gap-4">
-                <a href="#tentang" className="bg-[#c9a84c] hover:bg-[#b8963e] text-white font-semibold px-6 py-3 rounded-full shadow-lg shadow-[#c9a84c]/30 hover:shadow-xl hover:shadow-[#c9a84c]/40 hover:scale-105 transition-all duration-300">
+                <a href="#tentang" className="bg-[var(--brand-accent)] hover:bg-[var(--brand-accent-hover)] text-white font-semibold px-6 py-3 rounded-full shadow-lg shadow-[var(--brand-accent)]/30 hover:shadow-xl hover:shadow-[var(--brand-accent)]/40 hover:scale-105 transition-all duration-300">
                   Kenal Masjid
                 </a>
                 <a href="#jadwal" className="border border-white/40 hover:border-white hover:bg-white/10 text-white font-semibold px-5 sm:px-6 py-3 rounded-full backdrop-blur-sm hover:scale-105 transition-all duration-300 text-center">
@@ -621,15 +624,15 @@ export default function Home() {
           ].map((item, i) => (
             <Reveal key={item.judul} delay={i * 100}>
               <a href={item.href}
-                 className="flex items-center gap-4 p-4 border border-gray-100 rounded-2xl hover:border-[#c9a84c]/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group">
-                <div className="w-10 h-10 rounded-xl bg-[#0d3d2b]/10 flex items-center justify-center text-xl flex-shrink-0 group-hover:bg-[#c9a84c]/20 transition-colors">
-                  <FeatureIcon name={item.icon} className="h-5 w-5 text-[#0d3d2b]" />
+                 className="flex items-center gap-4 p-4 border border-gray-100 rounded-2xl hover:border-[var(--brand-accent)]/40 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 group">
+                <div className="w-10 h-10 rounded-xl bg-[var(--brand-primary)]/10 flex items-center justify-center text-xl flex-shrink-0 group-hover:bg-[var(--brand-accent)]/20 transition-colors">
+                  <FeatureIcon name={item.icon} className="h-5 w-5 text-[var(--brand-primary)]" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-semibold text-[#0d3d2b] text-sm">{item.judul}</p>
+                  <p className="font-semibold text-[var(--brand-primary)] text-sm">{item.judul}</p>
                   <p className="text-gray-400 text-xs">{item.sub}</p>
                 </div>
-                <span className="text-gray-300 group-hover:text-[#c9a84c] group-hover:translate-x-1 transition-all">→</span>
+                <span className="text-gray-300 group-hover:text-[var(--brand-accent)] group-hover:translate-x-1 transition-all">→</span>
               </a>
             </Reveal>
           ))}
@@ -638,29 +641,22 @@ export default function Home() {
 
       {/* ── TENTANG ── */}
       <section id="tentang" className="relative bg-gray-50 py-20 px-6 overflow-hidden">
-        <IslamicPattern className="inset-0 text-[#0d3d2b] opacity-[0.03]" />
+        <IslamicPattern className="inset-0 text-[var(--brand-primary)] opacity-[0.03]" />
         <div className="max-w-6xl mx-auto relative">
           <Reveal>
-            <p className="text-[#c9a84c] text-sm uppercase tracking-widest mb-2">Tentang Kami</p>
-            <h2 className="text-[#0d3d2b] text-3xl font-bold mb-10">Masjid Lathifah</h2>
+            <p className="text-[var(--brand-accent)] text-sm uppercase tracking-widest mb-2">{about.label}</p>
+            <h2 className="text-[var(--brand-primary)] text-3xl font-bold mb-10">{about.title}</h2>
           </Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <Reveal>
               <div>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  Masjid Lathifah adalah masjid yang berlokasi di lingkungan perumahan, menjadi
-                  pusat kegiatan ibadah dan sosial masyarakat setempat. Dikelola oleh Dewan
-                  Kemakmuran Masjid (DKM) Lathifah, masjid ini terbuka untuk seluruh jamaah.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  Dengan fasilitas yang terus dikembangkan, Masjid Lathifah hadir untuk melayani
-                  kebutuhan ibadah dan kegiatan keagamaan warga sekitar setiap harinya.
-                </p>
+                <p className="text-gray-600 leading-relaxed mb-4">{about.paragraph1}</p>
+                <p className="text-gray-600 leading-relaxed">{about.paragraph2}</p>
               </div>
             </Reveal>
             <Reveal delay={150}>
               <div className="relative h-72 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <Image src="/masjid-2.jpg" alt="Masjid Lathifah" fill className="object-cover" />
+                <Image src={about.image} alt={about.imageAlt} fill className="object-cover" />
               </div>
             </Reveal>
           </div>
@@ -669,18 +665,18 @@ export default function Home() {
 
       {/* ── LAYANAN ── */}
       <section id="layanan" className="relative bg-white py-20 px-6 overflow-hidden">
-        <IslamicPattern className="inset-0 text-[#0d3d2b] opacity-[0.03]" />
+        <IslamicPattern className="inset-0 text-[var(--brand-primary)] opacity-[0.03]" />
         <div className="max-w-6xl mx-auto relative">
           <Reveal>
-            <p className="text-[#c9a84c] text-sm uppercase tracking-widest mb-2">Layanan Kami</p>
-            <h2 className="text-[#0d3d2b] text-3xl font-bold mb-10">Kegiatan & Fasilitas</h2>
+            <p className="text-[var(--brand-accent)] text-sm uppercase tracking-widest mb-2">Layanan Kami</p>
+            <h2 className="text-[var(--brand-primary)] text-3xl font-bold mb-10">Kegiatan & Fasilitas</h2>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {LAYANAN.map((l, i) => (
               <Reveal key={l.judul} delay={i * 100}>
-                <div className="p-6 bg-white border border-gray-100 rounded-2xl hover:border-[#c9a84c]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                  <div className="mb-4 text-[#0d3d2b]"><FeatureIcon name={l.icon} className="h-8 w-8" /></div>
-                  <h3 className="font-bold text-[#0d3d2b] mb-2">{l.judul}</h3>
+                <div className="p-6 bg-white border border-gray-100 rounded-2xl hover:border-[var(--brand-accent)]/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                  <div className="mb-4 text-[var(--brand-primary)]"><FeatureIcon name={l.icon} className="h-8 w-8" /></div>
+                  <h3 className="font-bold text-[var(--brand-primary)] mb-2">{l.judul}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{l.desc}</p>
                 </div>
               </Reveal>
@@ -697,15 +693,15 @@ export default function Home() {
 
       {/* ── GALERI ── */}
       <section id="galeri" className="relative bg-gray-50 py-20 px-6 overflow-hidden">
-        <IslamicPattern className="inset-0 text-[#0d3d2b] opacity-[0.03]" />
+        <IslamicPattern className="inset-0 text-[var(--brand-primary)] opacity-[0.03]" />
         <div className="max-w-6xl mx-auto relative">
           <Reveal>
             <div className="flex items-end justify-between gap-4 mb-10">
               <div>
-                <p className="text-[#c9a84c] text-sm uppercase tracking-widest mb-2">Galeri</p>
-                <h2 className="text-[#0d3d2b] text-3xl font-bold">Dokumentasi Masjid</h2>
+                <p className="text-[var(--brand-accent)] text-sm uppercase tracking-widest mb-2">Galeri</p>
+                <h2 className="text-[var(--brand-primary)] text-3xl font-bold">Dokumentasi Masjid</h2>
               </div>
-              <Link href="/galeri" className="text-[#0d3d2b] text-sm font-semibold hover:text-[#c9a84c] transition-colors whitespace-nowrap">
+              <Link href="/galeri" className="text-[var(--brand-primary)] text-sm font-semibold hover:text-[var(--brand-accent)] transition-colors whitespace-nowrap">
                 Lihat Semua →
               </Link>
             </div>
@@ -736,8 +732,8 @@ export default function Home() {
       <section id="lokasi" className="bg-white py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
-            <p className="text-[#c9a84c] text-sm uppercase tracking-widest mb-2">Lokasi</p>
-            <h2 className="text-[#0d3d2b] text-3xl font-bold">Temukan Masjid Lathifah</h2>
+            <p className="text-[var(--brand-accent)] text-sm uppercase tracking-widest mb-2">Lokasi</p>
+            <h2 className="text-[var(--brand-primary)] text-3xl font-bold">Temukan Masjid Lathifah</h2>
             <p className="text-gray-500 text-sm mt-2">Masjid Jami&apos; Lathifah GSA</p>
           </div>
           <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-lg">
@@ -754,7 +750,7 @@ export default function Home() {
             href={GOOGLE_MAPS_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 mt-5 bg-[#0d3d2b] hover:bg-[#0a2e21] text-white font-semibold px-5 py-3 rounded-full transition-colors"
+            className="inline-flex items-center gap-2 mt-5 bg-[var(--brand-primary)] hover:bg-[var(--brand-primary-hover)] text-white font-semibold px-5 py-3 rounded-full transition-colors"
           >
             Buka navigasi Google Maps <span aria-hidden="true">→</span>
           </a>
@@ -764,7 +760,7 @@ export default function Home() {
       {/* ── FOOTER ── */}
       </main>
 
-      <footer className="bg-[#0d3d2b] text-white py-12 px-6">
+      <footer className="bg-[var(--brand-primary)] text-white py-12 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -774,20 +770,20 @@ export default function Home() {
             <p className="text-white/50 text-sm max-w-xs">Pusat ibadah dan kegiatan keagamaan masyarakat.</p>
           </div>
           <div>
-            <p className="font-semibold mb-3 text-[#c9a84c]">Kontak</p>
+            <p className="font-semibold mb-3 text-[var(--brand-accent)]">Kontak</p>
             <p className="text-white/60 text-sm">Masjid Jami&apos; Lathifah GSA</p>
             <p className="text-white/60 text-sm">Gunung Sindur, Jawa Barat</p>
             <a
               href={GOOGLE_MAPS_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 mt-3 text-[#c9a84c] hover:text-white text-sm font-semibold transition-colors"
+              className="inline-flex items-center gap-2 mt-3 text-[var(--brand-accent)] hover:text-white text-sm font-semibold transition-colors"
             >
               Lihat lokasi di Google Maps <span aria-hidden="true">→</span>
             </a>
           </div>
           <div>
-            <p className="font-semibold mb-3 text-[#c9a84c]">Menu</p>
+            <p className="font-semibold mb-3 text-[var(--brand-accent)]">Menu</p>
             {['Beranda','Tentang','Layanan','Berita','Galeri','Lokasi'].map(m => (
               <a key={m} href={`#${m.toLowerCase()}`}
                  className="block text-white/60 hover:text-white text-sm mb-1 transition-colors">{m}</a>

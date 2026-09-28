@@ -16,12 +16,12 @@ export default function GaleriPage() {
 
   return (
     <main className="min-h-screen bg-gray-50">
-      <header className="bg-[#0d3d2b] pt-24 pb-12 px-6">
+      <header className="bg-[var(--brand-primary)] pt-24 pb-12 px-6">
         <div className="max-w-6xl mx-auto">
-          <Link href="/" className="text-[#c9a84c] text-sm hover:underline mb-4 inline-block">
+          <Link href="/" className="text-[var(--brand-accent)] text-sm hover:underline mb-4 inline-block">
             ← Kembali ke Beranda
           </Link>
-          <p className="text-[#c9a84c] text-sm uppercase tracking-widest mb-2">Dokumentasi</p>
+          <p className="text-[var(--brand-accent)] text-sm uppercase tracking-widest mb-2">Dokumentasi</p>
           <h1 className="text-white text-4xl font-bold">Galeri Masjid</h1>
           <p className="text-white/80 text-sm mt-2">Kumpulan foto kegiatan dan suasana Masjid Lathifah</p>
         </div>
@@ -41,13 +41,13 @@ export default function GaleriPage() {
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 {index === 0 && (
-                  <span className="absolute top-4 left-4 bg-[#c9a84c] text-white text-[10px] font-bold px-3 py-1 rounded-full">
+                  <span className="absolute top-4 left-4 bg-[var(--brand-accent)] text-white text-[10px] font-bold px-3 py-1 rounded-full">
                     TERBARU
                   </span>
                 )}
               </div>
               <div className="p-5">
-                <h2 className="text-[#0d3d2b] font-bold text-base">{item.judul}</h2>
+                <h2 className="text-[var(--brand-primary)] font-bold text-base">{item.judul}</h2>
                 <p className="text-gray-600 text-sm leading-relaxed mt-2">{item.deskripsi}</p>
               </div>
             </article>
@@ -55,7 +55,7 @@ export default function GaleriPage() {
         </div>
       </section>
 
-      <footer className="bg-[#0d3d2b] py-6 px-6 text-center">
+      <footer className="bg-[var(--brand-primary)] py-6 px-6 text-center">
         <p className="text-white/70 text-xs">© 2026 DKM Masjid Lathifah</p>
       </footer>
     </main>
