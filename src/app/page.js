@@ -765,7 +765,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.png" alt="Logo" width={36} height={36} className="rounded-full" />
+              <Image src="/logo.png" alt="Logo Masjid Lathifah" width={36} height={36} className="rounded-full" />
               <p className="font-bold">Masjid Lathifah</p>
             </div>
             <p className="text-white/50 text-sm max-w-xs">Pusat ibadah dan kegiatan keagamaan masyarakat.</p>
