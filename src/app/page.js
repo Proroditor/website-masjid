@@ -232,8 +232,9 @@ function SectionJadwal() {
           if (Object.values(nextTimings).some((waktu) => waktu === '--:--')) throw new Error('Invalid prayer time response')
           setTimings(nextTimings)
           setStatus('online')
-        } catch (error) {
-          console.error('Failed to load prayer times', error)
+        } catch {
+          // Aladhan can fail intermittently or be blocked on some networks.
+          // The page already has a bundled fallback schedule, so we keep the UI stable without noisy console errors.
           setStatus('fallback')
         }
       },
