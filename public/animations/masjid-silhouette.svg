@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 478 180" fill="none">
+  <title>Siluet Masjid Lathifah</title>
+  <desc>Ilustrasi vektor masjid dengan kubah, empat menara, pintu, dan bulan sabit.</desc>
+  <g fill="#050812">
+    <path d="M0 153Q85 132 164 150T319 146Q399 130 478 149V180H0Z" />
+    <rect y="166" width="478" height="14" />
+    <rect x="132" y="104" width="214" height="76" />
+    <path d="M149 104a44 34 0 0 1 88 0ZM241 104a44 34 0 0 1 88 0ZM187 94a51 53 0 0 1 102 0Z" />
+    <path d="M229 42a10 18 0 1 1 20 0v5h-20Z" />
+    <path d="M103 105V57h18v48ZM98 60l14-25 14 25ZM109 30a3 3 0 1 1 6 0" />
+    <path d="M357 105V57h18v48ZM352 60l14-25 14 25ZM363 30a3 3 0 1 1 6 0" />
+    <path d="M164 105V39h25v66ZM158 43l18-28 19 28ZM174 10a3 3 0 1 1 6 0" />
+    <path d="M289 105V39h25v66ZM283 43l18-28 19 28ZM299 10a3 3 0 1 1 6 0" />
+    <path d="M202 180v-42a18 22 0 0 1 36 0v42ZM246 180v-42a18 22 0 0 1 36 0v42Z" fill="#121a28" />
+    <path d="M236 0a8 8 0 1 1 13 6 10 10 0 1 0-13-6Z" fill="#e7c86b" />
+  </g>
+</svg>

@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 478 300" fill="none">
+  <title>Animasi jadwal sholat: langit, awan, matahari, bulan, dan masjid</title>
+  <desc>Scene siang, senja, dan malam berulang. Awan bergerak, bintang berkelip, matahari terbit dan tenggelam, bulan muncul pada malam hari, dan siluet masjid tetap di horizon.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop class="sky-top" offset="0%" stop-color="#02020f" />
+      <stop class="sky-bottom" offset="100%" stop-color="#080820" />
+    </linearGradient>
+    <radialGradient id="sun-glow">
+      <stop offset="0%" stop-color="#fff5c2" stop-opacity=".95" />
+      <stop offset="36%" stop-color="#ffb347" stop-opacity=".48" />
+      <stop offset="100%" stop-color="#ff7b32" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="dusk-glow">
+      <stop offset="0%" stop-color="#ff9850" stop-opacity=".52" />
+      <stop offset="100%" stop-color="#e84c26" stop-opacity="0" />
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="1" />
+    </filter>
+    <filter id="celestial-glow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="9" />
+    </filter>
+    <pattern id="star-field" width="119.5" height="75" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="13" r="1" fill="#fff" />
+      <circle cx="39" cy="48" r="1.25" fill="#fff" />
+      <circle cx="77" cy="19" r=".9" fill="#fff" />
+      <circle cx="108" cy="61" r="1.1" fill="#fff" />
+      <circle cx="63" cy="70" r=".8" fill="#fff" />
+      <circle cx="17" cy="71" r=".8" fill="#fff" />
+    </pattern>
+    <style>
+      @keyframes sky-top {
+        0%, 13% { stop-color: #02020f; }
+        16% { stop-color: #120828; }
+        19% { stop-color: #3a1a3a; }
+        24% { stop-color: #1a5a9a; }
+        31% { stop-color: #1060a8; }
+        52% { stop-color: #0a5090; }
+        68% { stop-color: #1a6aa0; }
+        72% { stop-color: #c04010; }
+        76% { stop-color: #902030; }
+        82% { stop-color: #300a50; }
+        88%, 100% { stop-color: #02020f; }
+      }
+      @keyframes sky-bottom {
+        0%, 13% { stop-color: #080820; }
+        16% { stop-color: #6b2060; }
+        19% { stop-color: #e8803a; }
+        24% { stop-color: #f0c060; }
+        31% { stop-color: #70c0e8; }
+        52% { stop-color: #50aad0; }
+        68% { stop-color: #80c0e0; }
+        72% { stop-color: #f07020; }
+        76% { stop-color: #e05020; }
+        82% { stop-color: #a03020; }
+        88%, 100% { stop-color: #080820; }
+      }
+      @keyframes daylight {
+        0%, 14% { opacity: 0; }
+        20% { opacity: .42; }
+        28%, 68% { opacity: .85; }
+        76% { opacity: .35; }
+        84%, 100% { opacity: 0; }
+      }
+      @keyframes night-sky {
+        0%, 14% { opacity: 1; }
+        21% { opacity: .3; }
+        28%, 72% { opacity: 0; }
+        80% { opacity: .35; }
+        87%, 100% { opacity: 1; }
+      }
+      @keyframes twilight {
+        0%, 67% { opacity: 0; }
+        72% { opacity: .78; }
+        77% { opacity: .52; }
+        84%, 100% { opacity: 0; }
+      }
+      @keyframes drift {
+        from { transform: translateX(0); }
+        to { transform: translateX(18px); }
+      }
+      @keyframes twinkle {
+        0%, 100% { opacity: .35; }
+        50% { opacity: 1; }
+      }
+      @keyframes sun-path {
+        0% { transform: translate(-28px, 202px); }
+        50% { transform: translate(239px, 54px); }
+        100% { transform: translate(506px, 202px); }
+      }
+      @keyframes moon-path {
+        0%, 100% { transform: translate(239px, 50px); }
+        20% { transform: translate(-16px, 198px); }
+        76% { transform: translate(494px, 198px); }
+      }
+      .sky-top { animation: sky-top 120s linear infinite; }
+      .sky-bottom { animation: sky-bottom 120s linear infinite; }
+      .stars { opacity: 0; animation: night-sky 120s linear infinite; }
+      .star { animation: twinkle 2.5s ease-in-out infinite; }
+      .star:nth-of-type(3n) { animation-delay: .8s; }
+      .star:nth-of-type(3n + 1) { animation-delay: 1.6s; }
+      .clouds { animation: daylight 120s linear infinite; }
+      .cloud {
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: drift 10s ease-in-out infinite alternate;
+      }
+      .cloud-1 { animation-duration: 9s; animation-delay: 0s; }
+      .cloud-2 { animation-duration: 10s; animation-delay: 1s; }
+      .cloud-3 { animation-duration: 11s; animation-delay: 2s; }
+      .cloud-4 { animation-duration: 12s; animation-delay: 3s; }
+      .cloud-5 { animation-duration: 10.5s; animation-delay: 4s; }
+      .sun { animation: daylight 120s linear infinite, sun-path 120s linear infinite; }
+      .moon { animation: night-sky 120s linear infinite, moon-path 120s linear infinite; }
+      .sun-glow { animation: daylight 120s linear infinite, sun-path 120s linear infinite; }
+      .dusk { animation: twilight 120s linear infinite; }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation: none !important; }
+        .stars { opacity: 1; }
+        .clouds, .sun, .sun-glow, .dusk { opacity: 0; }
+        .sun, .sun-glow { transform: translate(-28px, 202px); }
+        .moon { opacity: 1; transform: translate(239px, 50px); }
+      }
+    </style>
+  </defs>
+
+  <rect width="478" height="300" fill="url(#sky)" />
+  <rect class="stars" width="478" height="220" fill="url(#star-field)" />
+  <g class="star" fill="#fff">
+    <circle cx="28" cy="38" r="1.2" /><circle cx="82" cy="91" r=".9" />
+    <circle cx="132" cy="27" r="1" /><circle cx="194" cy="71" r="1.4" />
+    <circle cx="244" cy="42" r=".8" /><circle cx="304" cy="96" r="1.1" />
+    <circle cx="361" cy="32" r="1.3" /><circle cx="431" cy="81" r=".9" />
+    <circle cx="55" cy="151" r="1.1" /><circle cx="169" cy="131" r=".8" />
+    <circle cx="276" cy="151" r="1.2" /><circle cx="395" cy="133" r="1" />
+  </g>
+
+  <g class="dusk">
+    <ellipse cx="255" cy="230" rx="265" ry="100" fill="url(#dusk-glow)" />
+  </g>
+  <g class="sun-glow">
+    <circle cx="0" cy="0" r="38" fill="#ffae45" opacity=".5" filter="url(#celestial-glow)" />
+  </g>
+  <g class="sun">
+    <circle cx="0" cy="0" r="16" fill="#fff1b0" />
+    <circle cx="0" cy="0" r="11" fill="#ffe06a" />
+  </g>
+  <g class="moon">
+    <path d="M15-13.5A16 16 0 1 0 17 12.5A13 13 0 0 1 15-13.5Z" fill="#fff7d6" />
+  </g>
+
+  <g class="clouds" fill="#fff" opacity=".72" filter="url(#soft)">
+    <g transform="translate(19 42) scale(.8 .69)"><g class="cloud cloud-1"><path d="M12 31c-7 0-12-5-12-12S5 7 12 7c3-9 11-7 15-2 8-11 24-5 25 5 11-5 21 1 21 10s-6 11-14 11H12Z" /></g></g>
+    <g transform="translate(33 78) scale(.55 .47)"><g class="cloud cloud-2"><path d="M12 31c-7 0-12-5-12-12S5 7 12 7c3-9 11-7 15-2 8-11 24-5 25 5 11-5 21 1 21 10s-6 11-14 11H12Z" /></g></g>
+    <g transform="translate(191 24) scale(1 .78)"><g class="cloud cloud-3"><path d="M12 31c-7 0-12-5-12-12S5 7 12 7c3-9 11-7 15-2 8-11 24-5 25 5 11-5 21 1 21 10s-6 11-14 11H12Z" /></g></g>
+    <g transform="translate(215 66) scale(.65 .53)"><g class="cloud cloud-4"><path d="M12 31c-7 0-12-5-12-12S5 7 12 7c3-9 11-7 15-2 8-11 24-5 25 5 11-5 21 1 21 10s-6 11-14 11H12Z" /></g></g>
+    <g transform="translate(325 48) scale(.7 .63)"><g class="cloud cloud-5"><path d="M12 31c-7 0-12-5-12-12S5 7 12 7c3-9 11-7 15-2 8-11 24-5 25 5 11-5 21 1 21 10s-6 11-14 11H12Z" /></g></g>
+  </g>
+
+  <path d="M0 239 48 216 96 231 152 204 210 230 271 207 322 226 383 199 430 220 478 204V300H0Z" fill="#101827" opacity=".56" />
+  <path d="M0 258Q42 232 82 246T164 239Q205 229 245 245T329 236Q373 224 412 244T478 235V300H0Z" fill="#0b1220" opacity=".86" />
+
+  <g class="mosque" fill="#050812">
+    <path d="M0 273Q85 252 164 270T319 266Q399 250 478 269V300H0Z" />
+    <rect x="0" y="286" width="478" height="14" />
+    <rect x="132" y="224" width="214" height="76" />
+    <path d="M149 224a44 34 0 0 1 88 0ZM241 224a44 34 0 0 1 88 0ZM187 214a51 53 0 0 1 102 0Z" />
+    <path d="M229 162a10 18 0 1 1 20 0v5h-20Z" />
+    <path d="M103 225V177h18v48ZM98 180l14-25 14 25ZM109 150a3 3 0 1 1 6 0" />
+    <path d="M357 225V177h18v48ZM352 180l14-25 14 25ZM363 150a3 3 0 1 1 6 0" />
+    <path d="M164 225V159h25v66ZM158 163l18-28 19 28ZM174 130a3 3 0 1 1 6 0" />
+    <path d="M289 225V159h25v66ZM283 163l18-28 19 28ZM299 130a3 3 0 1 1 6 0" />
+    <path d="M202 300v-42a18 22 0 0 1 36 0v42ZM246 300v-42a18 22 0 0 1 36 0v42Z" fill="#121a28" />
+    <path d="M236 120a8 8 0 1 1 13 6 10 10 0 1 0-13-6Z" fill="#e7c86b" />
+    <circle cx="112" cy="145" r="2" fill="#e7c86b" />
+    <circle cx="366" cy="145" r="2" fill="#e7c86b" />
+    <circle cx="177" cy="120" r="2.5" fill="#e7c86b" />
+    <circle cx="301" cy="120" r="2.5" fill="#e7c86b" />
+  </g>
+</svg>
