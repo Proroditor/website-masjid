@@ -6,10 +6,6 @@ const nextConfig = {
     remotePatterns: [{protocol: 'https', hostname: 'cdn.sanity.io'}],
   },
   async headers() {
-    const scriptSource = process.env.NODE_ENV === 'development'
-      ? "'self' 'unsafe-inline' 'unsafe-eval'"
-      : "'self' 'unsafe-inline'"
-
     return [
       {
         source: '/(.*)',
@@ -18,7 +14,6 @@ const nextConfig = {
           {key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin'},
           {key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(self)'},
           {key: 'Strict-Transport-Security', value: 'max-age=31536000; includeSubDomains'},
-          {key: 'Content-Security-Policy', value: `default-src 'self'; script-src ${scriptSource}; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://cdn.sanity.io; font-src 'self' data:; connect-src 'self' https://api.aladhan.com https://*.api.sanity.io https://*.sanity.io; frame-src 'self' https://www.google.com https://maps.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'`},
         ],
       },
     ]

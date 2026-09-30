@@ -17,6 +17,8 @@ export const metadata = {
   description: "Informasi ibadah, kegiatan, dan berita Masjid Lathifah.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({ children }) {
   return (
     <html

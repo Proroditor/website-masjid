@@ -20,32 +20,6 @@ const LAYANAN = [
 
 const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/4qac5V8LgmyhVQk87'
 const GOOGLE_MAPS_EMBED_URL = 'https://www.google.com/maps?q=-6.4231169,106.8405725&output=embed'
-const JADWAL_SCENES = [
-  { range: [0, 4], top: '#02020f', bottom: '#080820' },
-  { range: [4, 5], top: '#120828', bottom: '#6b2060' },
-  { range: [5, 5.5], top: '#2a1248', bottom: '#d45a2a' },
-  { range: [5.5, 6.5], top: '#3a1a3a', bottom: '#e8803a' },
-  { range: [6.5, 8], top: '#1a5a9a', bottom: '#f0c060' },
-  { range: [8, 12], top: '#1060a8', bottom: '#70c0e8' },
-  { range: [12, 15], top: '#0a5090', bottom: '#50aad0' },
-  { range: [15, 17], top: '#1a6aa0', bottom: '#80c0e0' },
-  { range: [17, 17.5], top: '#c04010', bottom: '#f07020' },
-  { range: [17.5, 18], top: '#902030', bottom: '#e05020' },
-  { range: [18, 19], top: '#300a50', bottom: '#a03020' },
-  { range: [19, 24], top: '#02020f', bottom: '#080820' },
-]
-const JADWAL_STARS = Array.from({ length: 40 }, (_, index) => ({
-  left: (index * 37) % 100,
-  top: 5 + ((index * 23) % 58),
-  size: index % 3 === 0 ? 2 : 1,
-}))
-const JADWAL_CLOUDS = [
-  { left: '4%', top: '14%', width: 80, height: 22, duration: 9 },
-  { left: '7%', top: '26%', width: 55, height: 15, duration: 10 },
-  { left: '40%', top: '8%', width: 100, height: 25, duration: 11 },
-  { left: '45%', top: '22%', width: 65, height: 17, duration: 12 },
-  { left: '68%', top: '16%', width: 70, height: 20, duration: 10.5 },
-]
 const JADWAL_NAMES = ['Subuh', 'Dzuhur', 'Ashar', 'Maghrib', 'Isya']
 
 function normalizeWaktu(waktu) {
@@ -62,6 +36,11 @@ function FeatureIcon({ name, className = 'h-6 w-6' }) {
     calendar: <><rect x="3" y="4.5" width="18" height="17" rx="2" /><path d="M16 2.5v4M8 2.5v4M3 9h18M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01" /></>,
     newspaper: <><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5" /><path d="M6 4v16" /></>,
     phone: <path d="M6.5 3.5 9 3l2 5-2.5 1.7a15 15 0 0 0 5.3 5.3l1.7-2.5 5 2-.5 2.5a2.5 2.5 0 0 1-2.7 2A16.5 16.5 0 0 1 4.5 6.2a2.5 2.5 0 0 1 2-2.7Z" />,
+    sun: <><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42" /></>,
+    sunrise: <><path d="M12 2v6m-7.07-3.07 1.42 1.42M2 17h20M4 21h16" /><path d="M5 17a7 7 0 0 1 14 0" /><path d="m16 8 1.42-1.42" /></>,
+    sunset: <><path d="M12 10V2m-7.07 3.07 1.42 1.42M2 17h20M4 21h16" /><path d="M5 17a7 7 0 0 1 14 0" /><path d="m16 8 1.42-1.42" /></>,
+    moon: <path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z" />,
+    pin: <><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></>,
   }
   return <svg aria-hidden="true" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{paths[name] || paths.mosque}</svg>
 }
@@ -246,17 +225,18 @@ function SectionJadwal() {
   const currentNow = now || new Date(2000, 0, 1)
   const jamDesimal = currentNow.getHours() + currentNow.getMinutes() / 60 + currentNow.getSeconds() / 3600
   const nowMenit = currentNow.getHours() * 60 + currentNow.getMinutes()
-  const scene = JADWAL_SCENES.find(({ range }) => jamDesimal >= range[0] && jamDesimal < range[1]) || JADWAL_SCENES[0]
-  const malam = jamDesimal < 5.5 || jamDesimal >= 19
-  const dramatis = (jamDesimal >= 5 && jamDesimal < 6.5) || (jamDesimal >= 17 && jamDesimal < 19)
-  const starsOpacity = jamDesimal < 5.5 || jamDesimal >= 18.5 ? 1 : jamDesimal < 6.5 || jamDesimal >= 18 ? 0.3 : 0
-  const cloudsOpacity = jamDesimal >= 7 && jamDesimal < 16.5 ? 0.85 : jamDesimal >= 6 && jamDesimal < 17 ? 0.35 : 0
-  const sunLeft = (jamDesimal / 24) * 100
-  const sunTop = 10 + 60 * (1 - Math.abs(Math.sin((jamDesimal / 24) * Math.PI * 2 + Math.PI / 2)) * 0.9)
+  const sky = jamDesimal >= 4 && jamDesimal < 6.5
+    ? '/langit-fajar.svg'
+    : jamDesimal >= 6.5 && jamDesimal < 17
+      ? '/langit-siang.svg'
+      : jamDesimal >= 17 && jamDesimal < 19
+        ? '/langit-senja.svg'
+        : '/langit-malam.svg'
   const waktuSholat = JADWAL_NAMES.map((nama) => ({
     nama,
     waktu: timings?.[nama] || normalizeWaktu(JADWAL_FALLBACK.find((item) => item.nama === nama)?.waktu),
   }))
+  const ikonSholat = ['sunrise', 'sun', 'sun', 'sunset', 'moon']
   let nextIndex = waktuSholat.findIndex(({ waktu }) => {
     const [hour, minute] = waktu.split(':').map(Number)
     return hour * 60 + minute > nowMenit
@@ -273,72 +253,57 @@ function SectionJadwal() {
     Math.floor((selisih % 3600) / 60),
     selisih % 60,
   ].map((value) => String(value).padStart(2, '0')).join(':')
-  const celestialStyle = malam
-    ? { width: 20, height: 20, background: 'radial-gradient(circle,#f0f0ff 20%,#c0c0ee 60%,transparent)', boxShadow: '0 0 8px 3px rgba(180,180,255,.4)' }
-    : dramatis
-      ? { width: 28, height: 28, background: 'radial-gradient(circle,#ffe0a0 20%,#ff9040 60%,transparent)', boxShadow: '0 0 22px 10px rgba(255,150,50,.5)' }
-      : { width: 28, height: 28, background: 'radial-gradient(circle,#fffde0 30%,#ffe060 70%,transparent)', boxShadow: '0 0 16px 8px rgba(255,220,50,.35)' }
 
   return (
     <section id="jadwal" className="relative overflow-hidden bg-white px-6 py-16 lg:px-8 lg:py-24">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(var(--brand-accent-rgb),.12),transparent_42%)]" />
-      <div className="relative mx-auto grid max-w-[480px] overflow-hidden rounded-[20px] border border-black/10 shadow-[0_16px_50px_rgba(var(--brand-primary-rgb),.2)] lg:max-w-6xl lg:grid-cols-[1.35fr_.85fr] lg:rounded-[28px]">
-        <div className="relative h-[clamp(220px,52vw,300px)] overflow-hidden lg:h-[460px]">
-          <div className="absolute inset-0 transition-[background] duration-[6000ms]" style={{ background: `linear-gradient(to bottom, ${scene.top}, ${scene.bottom})` }} />
-          <div className="absolute inset-0 transition-opacity duration-[4000ms]" style={{ opacity: starsOpacity }}>
-            {JADWAL_STARS.map((star, index) => (
-              <span key={index} className="absolute rounded-full bg-white animate-[twinkle_2.5s_ease-in-out_infinite]" style={{ left: `${star.left}%`, top: `${star.top}%`, width: star.size, height: star.size, animationDelay: `${index % 7}s` }} />
-            ))}
-          </div>
-          <div className="absolute inset-0 transition-opacity duration-[4000ms]" style={{ opacity: cloudsOpacity }}>
-            {JADWAL_CLOUDS.map((cloud, index) => (
-              <span key={index} className="absolute rounded-full bg-white/70 blur-[1px] animate-[drift_10s_ease-in-out_infinite_alternate]" style={{ left: cloud.left, top: cloud.top, width: cloud.width, height: cloud.height, animationDuration: `${cloud.duration}s`, animationDelay: `${index}s` }} />
-            ))}
-          </div>
-          <div className="absolute bottom-14 left-0 right-0 h-16" style={{ background: dramatis ? 'linear-gradient(to top, rgba(240,100,30,.7), transparent)' : 'linear-gradient(to top, rgba(10,10,40,.2), transparent)' }} />
-          <div className="absolute rounded-full transition-[left,top] duration-[6000ms]" style={{ left: `${sunLeft}%`, top: `${sunTop}%`, transform: 'translate(-50%, -50%)', ...celestialStyle }} />
-          <svg className="absolute bottom-0 left-0 h-[45%] w-full" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-            <rect x="0" y="266" width="1200" height="34" fill="rgba(0,0,0,.86)" />
-            <path d="M0 270 Q100 214 200 238 Q300 254 400 230 Q500 208 600 226 Q700 242 800 220 Q900 198 1000 226 Q1100 246 1200 231 L1200 300 L0 300Z" fill="rgba(0,0,0,.86)" />
-            <rect x="157" y="155" width="18" height="120" fill="rgba(0,0,0,.86)" /><polygon points="166,139 155,160 177,160" fill="rgba(0,0,0,.86)" /><circle cx="166" cy="134" r="5" fill="var(--brand-accent)" />
-            <rect x="1025" y="155" width="18" height="120" fill="rgba(0,0,0,.86)" /><polygon points="1034,139 1023,160 1045,160" fill="rgba(0,0,0,.86)" /><circle cx="1034" cy="134" r="5" fill="var(--brand-accent)" />
-            <rect x="334" y="196" width="532" height="109" fill="rgba(0,0,0,.86)" />
-            <rect x="351" y="125" width="30" height="180" fill="rgba(0,0,0,.86)" /><polygon points="366,105 350,130 382,130" fill="rgba(0,0,0,.86)" /><circle cx="366" cy="99" r="7" fill="var(--brand-accent)" />
-            <rect x="819" y="125" width="30" height="180" fill="rgba(0,0,0,.86)" /><polygon points="834,105 818,130 850,130" fill="rgba(0,0,0,.86)" /><circle cx="834" cy="99" r="7" fill="var(--brand-accent)" />
-            <ellipse cx="460" cy="198" rx="70" ry="48" fill="rgba(0,0,0,.86)" /><ellipse cx="740" cy="198" rx="70" ry="48" fill="rgba(0,0,0,.86)" /><ellipse cx="600" cy="172" rx="108" ry="76" fill="rgba(0,0,0,.86)" />
-            <path d="M592 108a19 19 0 1 1 16 0" stroke="var(--brand-accent)" strokeWidth="4" fill="none" /><circle cx="608" cy="101" r="4" fill="var(--brand-accent)" />
-          </svg>
+      <div className="card relative mx-auto w-full max-w-6xl overflow-hidden rounded-[28px] border border-white/10 bg-[var(--brand-primary)] text-white shadow-[0_16px_50px_rgba(var(--brand-primary-rgb),.2)]">
+        <div className="relative aspect-[478/300] w-full">
+          <Image src={sky} alt="" fill unoptimized aria-hidden="true" className="object-contain" />
         </div>
-        <div className="bg-[var(--brand-primary)] p-[clamp(14px,4vw,22px)] lg:flex lg:flex-col lg:justify-center lg:p-10">
-          <div className="mb-4 flex items-start justify-between gap-3 lg:mb-8 lg:gap-6">
-            <div>
-              <p className="text-[clamp(28px,7vw,38px)] font-medium leading-none tracking-[-1px] text-white tabular-nums lg:text-5xl">{now ? now.toLocaleTimeString('id-ID') : '--:--:--'}</p>
-              <p className="mt-1 text-[clamp(10px,2.5vw,12px)] text-white/50 lg:text-sm">{now ? now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long' }) : 'Memuat waktu...'}</p>
-              <p className="mt-0.5 text-[clamp(9px,2.2vw,11px)] text-[var(--brand-accent)]/75 lg:mt-2 lg:text-xs">Jadwal sholat hari ini</p>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_15%_50%,rgba(var(--brand-accent-rgb),.10),transparent_35%),radial-gradient(ellipse_at_85%_15%,rgba(107,213,141,.12),transparent_30%)]" />
+        <div className="relative z-20 bg-[var(--brand-primary)]/95 p-5 sm:p-8 lg:p-10">
+          <div className="mb-8 flex items-start justify-between gap-3 sm:mb-10 sm:gap-6">
+            <div className="min-w-0">
+              <p className="text-[clamp(30px,8vw,76px)] font-bold leading-none tracking-[-2px] text-white tabular-nums sm:tracking-[-3px]">
+                {now ? now.toLocaleTimeString('id-ID') : '--:--:--'}
+              </p>
+              <p className="mt-2 text-[clamp(11px,2.5vw,18px)] text-white/75">
+                {now ? now.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long' }) : 'Memuat waktu...'}
+              </p>
+              <p className="mt-2 text-[clamp(10px,2.2vw,16px)] text-[var(--brand-accent-light)]">Jadwal sholat hari ini</p>
             </div>
-            <div className="rounded-xl border border-[var(--brand-accent)]/20 bg-white/5 px-3 py-2 text-right lg:min-w-[150px] lg:px-4 lg:py-3">
-              <p className="mb-1 text-[clamp(8px,2vw,9px)] uppercase tracking-[.12em] text-white/35">Berikutnya</p>
-              <p className="text-[clamp(14px,3.8vw,18px)] font-semibold leading-none text-white">{berikutnya.nama}</p>
-              <p className="mt-1 text-[clamp(20px,5.5vw,28px)] font-bold leading-none tracking-[-1px] text-[var(--brand-accent)] tabular-nums [text-shadow:0_0_16px_rgba(var(--brand-accent-rgb),.6)]">{countdown}</p>
+            <div className="card relative w-[42%] max-w-[320px] shrink-0 overflow-hidden rounded-2xl border border-[var(--brand-accent)]/30 bg-white/[.06] p-3 sm:w-[36%] sm:rounded-[24px] sm:p-6">
+              <div aria-hidden="true" className="absolute -right-2 -top-2 opacity-[.14]">
+                <FeatureIcon name="mosque" className="h-20 w-20 text-[var(--brand-accent-light)] sm:h-32 sm:w-32" />
+              </div>
+              <div className="relative">
+                <p className="mb-2 text-[clamp(8px,1.8vw,14px)] font-semibold uppercase tracking-[.12em] text-[var(--brand-accent-light)]">Berikutnya</p>
+                <p className="text-[clamp(14px,3.5vw,28px)] font-bold leading-tight text-white">{berikutnya.nama}</p>
+                <p className="mt-1 text-[clamp(18px,5vw,34px)] font-bold leading-tight tracking-[-1px] text-[var(--brand-accent-light)] tabular-nums">{countdown}</p>
+              </div>
             </div>
           </div>
-          <div className="grid grid-cols-5 gap-1.5 lg:gap-2">
+
+          <div className="grid grid-cols-5 gap-1.5 sm:gap-3 lg:gap-4">
             {waktuSholat.map((sholat, index) => {
-              const [hour, minute] = sholat.waktu.split(':').map(Number)
               const isNext = index === nextIndex
-              const isDone = hour * 60 + minute < nowMenit && !isNext
               return (
-                <div key={sholat.nama} className={`flex flex-col items-center gap-1 rounded-[10px] px-0.5 py-2 lg:gap-2 lg:rounded-xl lg:px-2 lg:py-3 ${isNext ? 'border border-[var(--brand-accent)]/35 bg-[var(--brand-accent)]/12' : isDone ? 'border border-white/5 bg-white/[.03]' : 'border border-white/[.06] bg-white/[.05]'}`}>
-                  <span className={`h-1.5 w-1.5 rounded-full ${isNext ? 'bg-[var(--brand-accent)] shadow-[0_0_6px_rgba(var(--brand-accent-rgb),.7)]' : isDone ? 'bg-white/20' : 'bg-white/15'}`} />
-                  <p className={`text-center text-[clamp(9px,2.2vw,11px)] uppercase tracking-[.05em] ${isNext ? 'font-semibold text-white' : isDone ? 'text-white/30' : 'text-white/60'}`}>{sholat.nama}</p>
-                  <p className={`text-center text-[clamp(10px,2.5vw,12px)] tabular-nums ${isNext ? 'font-semibold text-[var(--brand-accent)]' : isDone ? 'text-white/20' : 'text-white/45'}`}>{sholat.waktu}</p>
+                <div key={sholat.nama} aria-current={isNext ? 'time' : undefined} className={`card min-w-0 items-center justify-center gap-2 rounded-xl border p-2 text-center sm:gap-4 sm:rounded-[22px] sm:p-5 lg:rounded-[28px] lg:p-6 ${isNext ? 'border-[var(--brand-accent)] bg-[var(--brand-accent)]/15 shadow-[0_0_24px_rgba(var(--brand-accent-rgb),.12)]' : 'border-white/10 bg-white/[.05]'}`}>
+                  <FeatureIcon name={ikonSholat[index]} className={`h-5 w-5 sm:h-8 sm:w-8 ${isNext ? 'text-[var(--brand-accent-light)]' : 'text-white/65'}`} />
+                  <p className={`text-[clamp(9px,2.5vw,18px)] font-semibold leading-tight ${isNext ? 'text-white' : 'text-white/85'}`}>{sholat.nama}</p>
+                  <p className={`text-[clamp(10px,2.8vw,22px)] tabular-nums ${isNext ? 'font-bold text-[var(--brand-accent-light)]' : 'text-white/80'}`}>{sholat.waktu}</p>
                 </div>
               )
             })}
           </div>
-          <p className="mt-4 text-center text-[10px] text-white/40">
-            {status === 'online' ? 'Jadwal berdasarkan lokasi Anda' : status === 'loading' ? 'Memuat jadwal berdasarkan lokasi...' : 'Menampilkan jadwal default masjid'}
-          </p>
+
+          <div className="mt-6 flex items-center gap-3 text-[clamp(10px,2vw,15px)] text-white/65 sm:mt-8 sm:gap-4">
+            <FeatureIcon name="pin" className="h-5 w-5 shrink-0 text-[var(--brand-accent-light)] sm:h-7 sm:w-7" />
+            <p>
+              {status === 'online' ? 'Jadwal berdasarkan lokasi Anda' : status === 'loading' ? 'Memuat jadwal berdasarkan lokasi...' : 'Menampilkan jadwal default masjid'}
+            </p>
+          </div>
         </div>
       </div>
     </section>

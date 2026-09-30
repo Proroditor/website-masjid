@@ -1,0 +1,256 @@
+<svg width="478" height="300" viewBox="0 0 478 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+svg { overflow: visible; }
+@keyframes kf_Langit_-_Senja_Sun_glow_transform_0 {
+  0% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(384px) translateY(140px) translateY(0px);
+  }
+  26.67% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(384px) translateY(140px) translateY(-6px);
+  }
+  53.33% {
+    transform: translateX(384px) translateY(140px) translateY(0px);
+  }
+  100% {
+    transform: translateX(384px) translateY(140px) translateY(0px);
+  }
+}
+#Langit_-_Senja_Sun_glow {
+  transform-origin: 0 0;
+  animation: kf_Langit_-_Senja_Sun_glow_transform_0 15s linear infinite;
+}
+@keyframes kf_Langit_-_Senja_Sun_transform_0 {
+  0% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(398px) translateY(154px) translateY(0px);
+  }
+  26.67% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(398px) translateY(154px) translateY(-6px);
+  }
+  53.33% {
+    transform: translateX(398px) translateY(154px) translateY(0px);
+  }
+  100% {
+    transform: translateX(398px) translateY(154px) translateY(0px);
+  }
+}
+#Langit_-_Senja_Sun {
+  transform-origin: 0 0;
+  animation: kf_Langit_-_Senja_Sun_transform_0 15s linear infinite;
+}
+@keyframes kf_Langit_-_Senja_Cloud_1_transform_0 {
+  0% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(18px) translateY(42px) translateX(0px);
+  }
+  30% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(18px) translateY(42px) translateX(18px);
+  }
+  60% {
+    transform: translateX(18px) translateY(42px) translateX(0px);
+  }
+  100% {
+    transform: translateX(18px) translateY(42px) translateX(0px);
+  }
+}
+#Langit_-_Senja_Cloud_1 {
+  transform-origin: 0 0;
+  animation: kf_Langit_-_Senja_Cloud_1_transform_0 15s linear infinite;
+}
+@keyframes kf_Langit_-_Senja_Cloud_2_transform_0 {
+  0% {
+    transform: translateX(43px) translateY(87px) translateX(0px);
+  }
+  4% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(43px) translateY(87px) translateX(0px);
+  }
+  37.33% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(43px) translateY(87px) translateX(18px);
+  }
+  70.67% {
+    transform: translateX(43px) translateY(87px) translateX(0px);
+  }
+  100% {
+    transform: translateX(43px) translateY(87px) translateX(0px);
+  }
+}
+#Langit_-_Senja_Cloud_2 {
+  transform-origin: 0 0;
+  animation: kf_Langit_-_Senja_Cloud_2_transform_0 15s linear infinite;
+}
+@keyframes kf_Langit_-_Senja_Cloud_3_transform_0 {
+  0% {
+    transform: translateX(192px) translateY(27px) translateX(0px);
+  }
+  8% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(192px) translateY(27px) translateX(0px);
+  }
+  44.67% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(192px) translateY(27px) translateX(18px);
+  }
+  81.33% {
+    transform: translateX(192px) translateY(27px) translateX(0px);
+  }
+  100% {
+    transform: translateX(192px) translateY(27px) translateX(0px);
+  }
+}
+#Langit_-_Senja_Cloud_3 {
+  transform-origin: 0 0;
+  animation: kf_Langit_-_Senja_Cloud_3_transform_0 15s linear infinite;
+}
+@keyframes kf_Langit_-_Senja_Cloud_4_transform_0 {
+  0% {
+    transform: translateX(237px) translateY(75px) translateX(0px);
+  }
+  12% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(237px) translateY(75px) translateX(0px);
+  }
+  52% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(237px) translateY(75px) translateX(18px);
+  }
+  92% {
+    transform: translateX(237px) translateY(75px) translateX(0px);
+  }
+  100% {
+    transform: translateX(237px) translateY(75px) translateX(0px);
+  }
+}
+#Langit_-_Senja_Cloud_4 {
+  transform-origin: 0 0;
+  animation: kf_Langit_-_Senja_Cloud_4_transform_0 15s linear infinite;
+}
+@keyframes kf_Langit_-_Senja_Cloud_5_transform_0 {
+  0% {
+    transform: translateX(354px) translateY(50px) translateX(0px);
+  }
+  16% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(354px) translateY(50px) translateX(0px);
+  }
+  51% {
+    animation-timing-function: linear(0, 0.0188, 0.0679, 0.1374, 0.2195, 0.308, 0.3978, 0.4856, 0.5686, 0.6452, 0.7142, 0.7753, 0.8283, 0.8735, 0.9113, 0.9423, 0.9671, 0.9866, 1.0014, 1.0123, 1.0198, 1.0247, 1.0274, 1.0283, 1.0281, 1.0268, 1.025, 1.0227, 1.0202, 1.0177, 1.0152, 1.0128, 1.0106, 1.0085, 1.0068, 1.0052, 1.0039, 1.0028, 1.0018, 1.0011, 1.0005, 1, 0.9997, 0.9995, 0.9993, 0.9992, 0.9992, 0.9992, 0.9992, 0.9993, 0.9993);
+    transform: translateX(354px) translateY(50px) translateX(18px);
+  }
+  86% {
+    transform: translateX(354px) translateY(50px) translateX(0px);
+  }
+  100% {
+    transform: translateX(354px) translateY(50px) translateX(0px);
+  }
+}
+#Langit_-_Senja_Cloud_5 {
+  transform-origin: 0 0;
+  animation: kf_Langit_-_Senja_Cloud_5_transform_0 15s linear infinite;
+}
+</style>
+<g id="Langit_-_Senja">
+<rect width="478" height="300" id="Langit_-_Senja_bg_0" fill="#963E42">
+</rect>
+<g id="Langit_-_Senja_distant_horizon" opacity="0.28" transform="translate(0 208)">
+<rect width="478" height="92" id="Langit_-_Senja_distant_horizon_bg_0" fill="#EF793D">
+</rect>
+</g>
+<circle id="Langit_-_Senja_Star_01" opacity="0.92" transform="translate(19 19)" cx="1.5" cy="1.5" r="1.5" fill="white"/>
+<circle id="Langit_-_Senja_Star_02" opacity="0.68" transform="translate(90 56)" cx="1" cy="1" r="1" fill="white"/>
+<circle id="Langit_-_Senja_Star_03" opacity="0.68" transform="translate(161 93)" cx="1" cy="1" r="1" fill="white"/>
+<circle id="Langit_-_Senja_Star_04" opacity="0.92" transform="translate(232 130)" cx="1" cy="1" r="1" fill="white"/>
+<circle id="Langit_-_Senja_Star_05" opacity="0.68" transform="translate(303 167)" cx="1.5" cy="1.5" r="1.5" fill="white"/>
+<circle id="Langit_-_Senja_Star_06" opacity="0.68" transform="translate(374 49)" cx="1" cy="1" r="1" fill="white"/>
+<circle id="Langit_-_Senja_Star_07" opacity="0.92" transform="translate(445 86)" cx="1" cy="1" r="1" fill="white"/>
+<circle id="Langit_-_Senja_Star_08" opacity="0.68" transform="translate(58 123)" cx="1" cy="1" r="1" fill="white"/>
+<circle id="Langit_-_Senja_Sun_glow" opacity="0.26" transform="translate(384 140)" cx="32" cy="32" r="32" fill="#FF713E"/>
+<circle id="Langit_-_Senja_Sun" transform="translate(398 154)" cx="18" cy="18" r="18" fill="#FFD184"/>
+<g id="Langit_-_Senja_Cloud_1" opacity="0.8" transform="translate(18 42)">
+<g id="Langit_-_Senja_Cloud_1_base" transform="translate(7 16.15)">
+<rect width="64.6" height="14.25" rx="7.6" id="Langit_-_Senja_Cloud_1_base_bg_0" fill="#FFE0BD">
+</rect>
+</g>
+<ellipse id="Langit_-_Senja_Cloud_1_puff_left" transform="translate(12.35 7.6)" cx="12.825" cy="10.45" rx="12.825" ry="10.45" fill="#FFE0BD"/>
+<ellipse id="Langit_-_Senja_Cloud_1_puff_center" transform="translate(29.45 1.9)" cx="14.725" cy="13.3" rx="14.725" ry="13.3" fill="#FFE0BD"/>
+<ellipse id="Langit_-_Senja_Cloud_1_puff_right" transform="translate(48.45 10.45)" cx="11.875" cy="9.025" rx="11.875" ry="9.025" fill="#FFE0BD"/>
+</g>
+<g id="Langit_-_Senja_Cloud_2" opacity="0.8" transform="translate(43 87)">
+<g id="Langit_-_Senja_Cloud_2_base" transform="translate(7 11.39)">
+<rect width="45.56" height="10.05" rx="5.36" id="Langit_-_Senja_Cloud_2_base_bg_0" fill="#FFE0BD">
+</rect>
+</g>
+<ellipse id="Langit_-_Senja_Cloud_2_puff_left" transform="translate(8.71 5.36)" cx="9.045" cy="7.37" rx="9.045" ry="7.37" fill="#FFE0BD"/>
+<ellipse id="Langit_-_Senja_Cloud_2_puff_center" transform="translate(20.77 1.34)" cx="10.385" cy="9.38" rx="10.385" ry="9.38" fill="#FFE0BD"/>
+<ellipse id="Langit_-_Senja_Cloud_2_puff_right" transform="translate(34.17 7.37)" cx="8.375" cy="6.365" rx="8.375" ry="6.365" fill="#FFE0BD"/>
+</g>
+<g id="Langit_-_Senja_Cloud_3" opacity="0.8" transform="translate(192 27)">
+<g id="Langit_-_Senja_Cloud_3_base" transform="translate(7 18.36)">
+<rect width="73.44" height="16.2" rx="8.64" id="Langit_-_Senja_Cloud_3_base_bg_0" fill="#FFE0BD">
+</rect>
+</g>
+<ellipse id="Langit_-_Senja_Cloud_3_puff_left" transform="translate(14.04 8.64)" cx="14.58" cy="11.88" rx="14.58" ry="11.88" fill="#FFE0BD"/>
+<ellipse id="Langit_-_Senja_Cloud_3_puff_center" transform="translate(33.48 2.16)" cx="16.74" cy="15.12" rx="16.74" ry="15.12" fill="#FFE0BD"/>
+<ellipse id="Langit_-_Senja_Cloud_3_puff_right" transform="translate(55.08 11.88)" cx="13.5" cy="10.26" rx="13.5" ry="10.26" fill="#FFE0BD"/>
+</g>
+<g id="Langit_-_Senja_Cloud_4" opacity="0.8" transform="translate(237 75)">
+<g id="Langit_-_Senja_Cloud_4_base" transform="translate(7 13.6)">
+<rect width="54.4" height="12" rx="6.4" id="Langit_-_Senja_Cloud_4_base_bg_0" fill="#FFE0BD">
+</rect>
+</g>
+<ellipse id="Langit_-_Senja_Cloud_4_puff_left" transform="translate(10.4 6.4)" cx="10.8" cy="8.8" rx="10.8" ry="8.8" fill="#FFE0BD"/>
+<ellipse id="Langit_-_Senja_Cloud_4_puff_center" transform="translate(24.8 1.6)" cx="12.4" cy="11.2" rx="12.4" ry="11.2" fill="#FFE0BD"/>
+<ellipse id="Langit_-_Senja_Cloud_4_puff_right" transform="translate(40.8 8.8)" cx="10" cy="7.6" rx="10" ry="7.6" fill="#FFE0BD"/>
+</g>
+<g id="Langit_-_Senja_Cloud_5" opacity="0.8" transform="translate(354 50)">
+<g id="Langit_-_Senja_Cloud_5_base" transform="translate(7 15.3)">
+<rect width="61.2" height="13.5" rx="7.2" id="Langit_-_Senja_Cloud_5_base_bg_0" fill="#FFE0BD">
+</rect>
+</g>
+<ellipse id="Langit_-_Senja_Cloud_5_puff_left" transform="translate(11.7 7.2)" cx="12.15" cy="9.9" rx="12.15" ry="9.9" fill="#FFE0BD"/>
+<ellipse id="Langit_-_Senja_Cloud_5_puff_center" transform="translate(27.9 1.8)" cx="13.95" cy="12.6" rx="13.95" ry="12.6" fill="#FFE0BD"/>
+<ellipse id="Langit_-_Senja_Cloud_5_puff_right" transform="translate(45.9 9.9)" cx="11.25" cy="8.55" rx="11.25" ry="8.55" fill="#FFE0BD"/>
+</g>
+<g id="Langit_-_Senja_distant_hill" opacity="0.72" transform="translate(0 216)">
+<rect width="478" height="84" id="Langit_-_Senja_distant_hill_bg_0" fill="#321729">
+</rect>
+</g>
+<g id="Langit_-_Senja_Mosque_Hill_foreground" transform="translate(0 236)">
+<rect width="478" height="64" id="Langit_-_Senja_Mosque_Hill_foreground_bg_0" fill="#160E1C">
+</rect>
+</g>
+<g id="Langit_-_Senja_Mosque_Masjid_body" transform="translate(133 218)">
+<rect width="212" height="82" id="Langit_-_Senja_Mosque_Masjid_body_bg_0" fill="#160E1C">
+</rect>
+</g>
+<ellipse id="Langit_-_Senja_Mosque_Dome_side_left" transform="translate(148 190)" cx="44" cy="32.5" rx="44" ry="32.5" fill="#160E1C"/>
+<ellipse id="Langit_-_Senja_Mosque_Dome_side_right" transform="translate(242 190)" cx="44" cy="32.5" rx="44" ry="32.5" fill="#160E1C"/>
+<ellipse id="Langit_-_Senja_Mosque_Main_dome" transform="translate(187 159)" cx="52" cy="43" rx="52" ry="43" fill="#160E1C"/>
+<g id="Langit_-_Senja_Mosque_Minaret_west_shaft" transform="translate(102 178)">
+<rect width="19" height="122" id="Langit_-_Senja_Mosque_Minaret_west_shaft_bg_0" fill="#160E1C">
+</rect>
+</g>
+<g id="Langit_-_Senja_Mosque_Minaret_east_shaft" transform="translate(357 178)">
+<rect width="19" height="122" id="Langit_-_Senja_Mosque_Minaret_east_shaft_bg_0" fill="#160E1C">
+</rect>
+</g>
+<ellipse id="Langit_-_Senja_Mosque_Minaret_west_cap" transform="translate(99 163)" cx="12.5" cy="11" rx="12.5" ry="11" fill="#160E1C"/>
+<ellipse id="Langit_-_Senja_Mosque_Minaret_east_cap" transform="translate(354 163)" cx="12.5" cy="11" rx="12.5" ry="11" fill="#160E1C"/>
+<g id="Langit_-_Senja_Mosque_High_minaret_west_shaft" transform="translate(162 142)">
+<rect width="25" height="158" id="Langit_-_Senja_Mosque_High_minaret_west_shaft_bg_0" fill="#160E1C">
+</rect>
+</g>
+<g id="Langit_-_Senja_Mosque_High_minaret_east_shaft" transform="translate(291 142)">
+<rect width="25" height="158" id="Langit_-_Senja_Mosque_High_minaret_east_shaft_bg_0" fill="#160E1C">
+</rect>
+</g>
+<ellipse id="Langit_-_Senja_Mosque_High_minaret_west_cap" transform="translate(158 126)" cx="16.5" cy="12" rx="16.5" ry="12" fill="#160E1C"/>
+<ellipse id="Langit_-_Senja_Mosque_High_minaret_east_cap" transform="translate(287 126)" cx="16.5" cy="12" rx="16.5" ry="12" fill="#160E1C"/>
+<circle id="Langit_-_Senja_Mosque_Dome_finial" transform="translate(234 151)" cx="5.5" cy="5.5" r="5.5" fill="#E7C86B"/>
+</g>
+</svg>

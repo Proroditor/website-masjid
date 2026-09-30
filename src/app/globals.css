@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 @keyframes twinkle {
   0%, 100% { opacity: 0.15; }
