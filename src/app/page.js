@@ -737,8 +737,8 @@ export default function Home() {
           </div>
           <div>
             <p className="font-semibold mb-3 text-[var(--brand-accent)]">Kontak</p>
-            <p className="text-white/60 text-sm">Masjid Jami&apos; Lathifah GSA</p>
-            <p className="text-white/60 text-sm">Gunung Sindur, Jawa Barat</p>
+            <p className="text-white/60 text-sm">Jl. H. Bajinun Graha Studio Alam</p>
+            <p className="text-white/60 text-sm">Sukmajaya, Jawa Barat</p>
             <a
               href={GOOGLE_MAPS_URL}
               target="_blank"
